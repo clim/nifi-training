@@ -1,0 +1,10 @@
+{
+    "type": "record",
+    "namespace": "com.iemop",
+    "name": "exercise02",
+    "fields": [
+        { "name": "ID", "type": [ "null", { "type": "bytes", "logicalType": "decimal", "precision": 10, "scale": 0 } ] },
+        { "name": "RESOURCE_NAME", "type": [ "null", "string" ] },
+        { "name": "CANCELLED_ACCOUNT", "type": [ "null", { "type": "bytes", "logicalType": "decimal", "precision": 40, "scale": 30 } ] }
+    ]
+}

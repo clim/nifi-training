@@ -1,0 +1,38 @@
+version: '3.7'
+
+services:
+
+  emdb:
+    container_name: emdb
+    image: mysql:8.0.16
+    restart: unless-stopped
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: emdb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: emdb
+      MYSQL_PASSWORD: emdb
+    volumes:
+      - ./emdb:/docker-entrypoint-initdb.d
+    networks:
+      - nifi
+
+  pw_db:
+    container_name: pw_db
+    image: mysql:8.0.16
+    restart: unless-stopped
+    ports:
+      - 3308:3306
+    environment:
+      MYSQL_DATABASE: pw
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: pw
+      MYSQL_PASSWORD: pw
+    volumes:
+      - ./pw:/docker-entrypoint-initdb.d
+    networks:
+      - nifi
+
+networks:
+  nifi:

@@ -1,0 +1,22 @@
+version: '3.7'
+
+services:
+
+  crss_db:
+    container_name: crss_db
+    image: mysql:8.0.16
+    restart: unless-stopped
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: crss_metering
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: metering
+      MYSQL_PASSWORD: metering
+    volumes:
+      - ./crss:/docker-entrypoint-initdb.d
+    networks:
+      - nifi
+
+networks:
+  nifi:
