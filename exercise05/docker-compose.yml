@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+
+  couchdb:
+    container_name: couchdb
+    image: couchdb:2.1.2
+    ports:
+      - 5984:5984
+    environment:
+      COUCHDB_USER: anahaw
+      COUCHDB_PASSWORD: anahaw
+
+  mysql:
+    container_name: mysql
+    image: mysql:8.0.16
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: anahaw
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: anahaw
+      MYSQL_PASSWORD: anahaw
